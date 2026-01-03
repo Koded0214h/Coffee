@@ -54,8 +54,8 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#E6D5B8] flex items-center justify-center p-4 font-sans text-[#3E2723]">
-      <div className="bg-[#FAF9F6] w-full max-w-5xl rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-white/50">
+    <div className="min-h-screen bg-[#E6D5B8] flex items-center justify-center p-2 sm:p-4 font-sans text-[#3E2723]">
+      <div className="bg-[#FAF9F6] w-full max-w-6xl rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col md:flex-row overflow-hidden border border-white/50">
         
         {/* LEFT SIDE: Form */}
         <div className="w-full md:w-2/5 p-8 md:p-12 bg-white flex flex-col justify-between">
@@ -110,28 +110,28 @@ const App = () => {
         </div>
 
         {/* RIGHT SIDE: Wall */}
-        <div className="w-full md:w-3/5 p-8 md:p-12 bg-[#FDFBF7] border-l border-[#EFEBE9]">
-          <h2 className="text-2xl font-bold mb-2">Wall of Memos</h2>
-          <p className="text-[#8D6E63] mb-8">Recent Supporters</p>
+        <div className="w-full md:w-3/5 p-4 sm:p-6 md:p-8 lg:p-12 bg-[#FDFBF7] border-l border-[#EFEBE9]">
+          <h2 className="text-xl sm:text-2xl font-bold mb-2">Wall of Memos</h2>
+          <p className="text-[#8D6E63] mb-6 sm:mb-8">Recent Supporters</p>
 
-          <div className="space-y-4 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+          <div className="space-y-3 sm:space-y-4 h-[400px] sm:h-[500px] md:h-[600px] overflow-y-auto pr-2 custom-scrollbar">
             {memos.length === 0 ? (
-              <p className="text-center text-[#A1887F] mt-10 italic">No coffees yet. Be the first!</p>
+              <p className="text-center text-[#A1887F] mt-8 sm:mt-10 italic">No coffees yet. Be the first!</p>
             ) : (
               memos.map((memo, i) => (
-                <div key={i} className="bg-white p-5 rounded-2xl flex items-center justify-between shadow-sm border border-[#F5F5F5]">
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${memo.name}`} 
-                      className="w-12 h-12 bg-[#FFECB3] rounded-full border border-[#FFE082]"
+                <div key={i} className="bg-white p-3 sm:p-4 md:p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between shadow-sm border border-[#F5F5F5] gap-2 sm:gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto">
+                    <img
+                      src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${memo.name}`}
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FFECB3] rounded-full border border-[#FFE082] flex-shrink-0"
                       alt="avatar"
                     />
-                    <div>
-                      <h4 className="font-bold text-[#3E2723]">{memo.name}</h4>
-                      <p className="text-sm text-[#8D6E63]">{memo.message}</p>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-bold text-[#3E2723] truncate">{memo.name}</h4>
+                      <p className="text-xs sm:text-sm text-[#8D6E63] line-clamp-2">{memo.message}</p>
                     </div>
                   </div>
-                  <div className="bg-[#FBE9E7] px-3 py-1 rounded-full text-[10px] font-bold text-[#D84315]">
+                  <div className="bg-[#FBE9E7] px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-bold text-[#D84315] flex-shrink-0">
                     {memo.eth_amount || "0.001"} ETH
                   </div>
                 </div>
