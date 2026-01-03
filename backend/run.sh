@@ -11,4 +11,4 @@ python manage.py listen &
 
 # 3. Start the Django API (Production Server)
 # We use 0.0.0.0:$PORT because Render provides the port dynamically
-gunicorn backend.wsgi:application --bind 0.0.0.0:$PORT
+gunicorn backend.wsgi:application --bind 0.0.0.0:8000

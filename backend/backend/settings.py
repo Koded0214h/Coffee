@@ -26,9 +26,9 @@ load_dotenv()
 SECRET_KEY = "django-insecure-moxbc0b5+se54z$ob1&s$^_s_59#7)=%xzb%)=v@&_z7w2^aft"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -126,10 +126,7 @@ STATIC_URL = "static/"
 
 
 # For development: Allow your frontend (usually localhost:3000)
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Web3/Contract Configuration
 ALCHEMY_API_KEY = os.getenv("ALCHEMY_API_KEY")
