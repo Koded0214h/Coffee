@@ -85,7 +85,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 if DATABASE_URL:
     DATABASES = {
-        "default": dj_database_url.config(default=DATABASE_URL)
+        "default": dj_database_url.parse(DATABASE_URL)
     }
 else:
     DATABASES = {
@@ -140,12 +140,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 ALCHEMY_API_KEY = os.getenv("ALCHEMY_API_KEY")
 CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS")
 
-# Database - Defaulting to SQLite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# REDIS
+REDIS_URL = os.getenv("REDIS_URL")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
