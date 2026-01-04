@@ -13,16 +13,23 @@ const App = () => {
   const [message, setMessage] = useState("");
   const [amount, setAmount] = useState("0.001");
 
-  const { isConnected } = useAccount();
+  // FIX 1: Add address here
+  const { isConnected, address } = useAccount(); 
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
   const OWNER_ADDRESS = "0xb4daA0837Ac497Fa72913FA8878846b368030E4C";
 
-  // This hook tracks the transaction progress
   const { isLoading: isConfirming, isSuccess: isConfirmed } = 
     useWaitForTransactionReceipt({ hash });
 
-  // 1. Fetch Memos from Django
+  // FIX 2: Add handleWithdraw function
+  const handleWithdraw = () => {
+    writeContract({
+      address: CONTRACT_ADDRESS,
+      abi: abiData.abi,
+      functionName: 'withdrawTip',
+    });
+  };
 
   const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
