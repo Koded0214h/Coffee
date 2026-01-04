@@ -16,6 +16,8 @@ const App = () => {
   const { isConnected } = useAccount();
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
+  const OWNER_ADDRESS = "0xb4daA0837Ac497Fa72913FA8878846b368030E4C";
+
   // This hook tracks the transaction progress
   const { isLoading: isConfirming, isSuccess: isConfirmed } = 
     useWaitForTransactionReceipt({ hash });
@@ -107,6 +109,14 @@ const App = () => {
             {isPending || isConfirming ? <Loader2 className="animate-spin" /> : <Coffee size={20} />}
             {isConfirming ? "CONFIRMING..." : `SEND ${amount} ETH`}
           </button>
+          {address?.toLowerCase() === OWNER_ADDRESS.toLowerCase() && (
+            <button 
+              onClick={handleWithdraw}
+              className="mt-6 w-full py-3 border-2 border-[#6F4E37] text-[#6F4E37] rounded-xl font-bold hover:bg-[#FDFBF7] transition-all"
+            >
+              Withdraw Contract Balance 💰
+            </button>
+          )}
         </div>
 
         {/* RIGHT SIDE: Wall */}
