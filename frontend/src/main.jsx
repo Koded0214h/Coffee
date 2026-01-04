@@ -11,7 +11,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const config = getDefaultConfig({
   appName: 'Coffee dApp',
-  projectId: '93a647e305e948f9882a65a396e95c4d', // Using a public demo ID for now
+  projectId: 'f6d73c527753a728236dff867e1b08c7', // Using a public demo ID for now
   chains: [sepolia],
 });
 
