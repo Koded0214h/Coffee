@@ -13,6 +13,7 @@ const config = getDefaultConfig({
   appName: 'Coffee dApp',
   projectId: 'f6d73c527753a728236dff867e1b08c7', // Using a public demo ID for now
   chains: [sepolia],
+  ssr: true, // For production
 });
 
 const queryClient = new QueryClient();
